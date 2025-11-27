@@ -1,1 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recio Digital Group | Digital Tools Built Right for the Trades</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Recio Digital Group builds modern apps and digital tools for electricians, contractors, and tradesmen — including the Sparkies app and Built Right Industries."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg-main: #0b1120;
+      --bg-soft: #020617;
+      --bg-card: #0f172a;
+      --bg-light: #f8fafc;
+      --border-subtle: #1f2937;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --accent-strong: #0ea5e9;
+      --accent-yellow: #facc15;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.7);
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --max-width: 1120px;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937, #020617 55%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+
+    /* NAVBAR */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.9)
+      );
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.8);
+      position: sticky;
+      top: 16px;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-left {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: radial-gradient(
+        circle at 20% 0%,
+        var(--accent-yellow),
+        var(--accent-strong)
+      );
+      border: 1px solid rgba(248, 250, 252, 0.12);
+      box-shadow: 0 10px 30px rgba(8, 47, 73, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-mark::before {
+      content: "";
+      position: absolute;
+      inset: 20% 22%;
+      border-radius: 999px;
+      border: 2px solid rgba(15, 23, 42, 0.9);
+      border-top-color: rgba(15, 23, 42, 0.0);
+      border-right-color: rgba(15, 23, 42, 0.0);
+      transform: rotate(-35deg);
+    }
+
+    .logo-text-main {
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      font-size: 0.98rem;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.86rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-yellow));
+      transition: width 0.18s ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      background: radial-gradient(
+        circle at top left,
+        rgba(56, 189, 248, 0.12),
+        rgba(15, 23, 42, 0.98)
+      );
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+    }
+
+    .nav-cta span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent-yellow);
+      box-shadow: 0 0 0 6px rgba(250, 204, 21, 0.18);
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 32px;
+      margin-top: 40px;
+      margin-bottom: 72px;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px 6px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: radial-gradient(
+        circle at left,
+        rgba(56, 189, 248, 0.3),
+        rgba(15, 23, 42, 0.95)
+      );
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .hero-kicker-pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+      font-size: 0.68rem;
+    }
+
+    .hero-title {
+      margin-top: 18px;
+      font-size: clamp(2.3rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+    }
+
+    .hero-title span.accent {
+      background: linear-gradient(120deg, var(--accent), var(--accent-yellow));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-body {
+      margin-top: 18px;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 32rem;
+    }
+
+    .hero-actions {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      padding: 11px 20px;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: linear-gradient(
+        135deg,
+        var(--accent-strong),
+        var(--accent),
+        var(--accent-yellow)
+      );
+      color: #020617;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      box-shadow: 0 16px 35px rgba(8, 47, 73, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary span.arrow {
+      font-size: 1rem;
+      margin-top: 1px;
+    }
+
+    .btn-ghost {
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      background: radial-gradient(
+        circle at top left,
+        rgba(15, 23, 42, 0.9),
+        rgba(15, 23, 42, 1)
+      );
+      color: var(--text-muted);
+      font-size: 0.86rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .hero-meta {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-badge {
+      padding: 5px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* HERO: RIGHT SIDE */
+    .hero-card {
+      border-radius: 26px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: radial-gradient(
+          circle at top left,
+          rgba(56, 189, 248, 0.16),
+          transparent 55%
+        ),
+        radial-gradient(
+          circle at bottom right,
+          rgba(250, 204, 21, 0.12),
+          transparent 60%
+        ),
+        linear-gradient(145deg, #020617, #020617 30%, #020617);
+      padding: 20px 18px 18px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .hero-card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .hero-card-chip {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.6);
+      font-size: 0.7rem;
+      color: var(--accent);
+      background: rgba(15, 23, 42, 0.85);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-card-chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent-yellow);
+    }
+
+    .hero-card-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.9fr;
+      gap: 14px;
+      margin-top: 8px;
+      margin-bottom: 16px;
+    }
+
+    .product-card {
+      border-radius: 18px;
+      padding: 12px 12px 11px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+    }
+
+    .product-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .product-chip {
+      font-size: 0.66rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .product-meta {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .product-tag {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .product-graph {
+      margin-top: 10px;
+      padding-top: 6px;
+      border-top: 1px dashed rgba(55, 65, 81, 0.8);
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 60px;
+    }
+
+    .product-graph-bar {
+      flex: 1;
+      border-radius: 999px 999px 3px 3px;
+      background: linear-gradient(
+        180deg,
+        rgba(56, 189, 248, 1),
+        rgba(56, 189, 248, 0.05)
+      );
+    }
+
+    .product-graph-bar.yellow {
+      background: linear-gradient(
+        180deg,
+        rgba(250, 204, 21, 1),
+        rgba(250, 204, 21, 0.08)
+      );
+    }
+
+    .product-graph-bar.short {
+      height: 35%;
+    }
+
+    .product-graph-bar.mid {
+      height: 60%;
+    }
+
+    .product-graph-bar.tall {
+      height: 88%;
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card-footer strong {
+      color: var(--accent);
+    }
+
+    .hero-card-badge-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card-badge {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(31, 41, 55, 1);
+      font-size: 0.7rem;
+    }
+
+    .hero-orbit {
+      position: absolute;
+      inset: -40%;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      transform: rotate(-8deg);
+      pointer-events: none;
+    }
+
+    /* SECTION WRAPPERS */
+    section {
+      margin-bottom: 64px;
+    }
+
+    .section-header {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .section-eyebrow {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+    }
+
+    .section-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 28rem;
+    }
+
+    /* ABOUT / WHAT WE DO */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 26px;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: linear-gradient(
+        145deg,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 1)
+      );
+      padding: 20px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .card-light {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: radial-gradient(circle at top, #f9fafb, #e5e7eb);
+      color: #020617;
+      padding: 20px;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .card p,
+    .card-light p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .card-light p {
+      color: #4b5563;
+    }
+
+    .bullets {
+      margin-top: 10px;
+      list-style: none;
+      font-size: 0.9rem;
+    }
+
+    .bullets li {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 6px;
+      color: var(--text-muted);
+    }
+
+    .bullets li span.icon {
+      font-size: 1rem;
+      margin-top: 1px;
+    }
+
+    .pill-row {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .pill.em {
+      border-color: rgba(56, 189, 248, 0.8);
+      color: var(--accent);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    /* PORTFOLIO / BRANDS */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .brand-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: radial-gradient(
+          circle at top,
+          rgba(56, 189, 248, 0.15),
+          transparent 55%
+        ),
+        #020617;
+      padding: 16px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .brand-chip {
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .brand-name {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .brand-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .brand-tag {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .brand-footer-link {
+      margin-top: 10px;
+      font-size: 0.82rem;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    /* WHY WORK WITH US */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .reason-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: linear-gradient(
+        145deg,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 1)
+      );
+      padding: 18px;
+    }
+
+    .reason-badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.65);
+      color: var(--accent);
+    }
+
+    .reason-card h3 {
+      font-size: 0.96rem;
+      margin-bottom: 6px;
+    }
+
+    .reason-card p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    /* CONTACT */
+    .contact {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .contact-copy p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 26rem;
+    }
+
+    .contact-meta {
+      margin-top: 14px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .contact-meta strong {
+      color: var(--accent);
+    }
+
+    .contact-form {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: radial-gradient(
+          circle at top,
+          rgba(56, 189, 248, 0.1),
+          transparent 55%
+        ),
+        #020617;
+      padding: 18px 16px 16px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .field {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.78rem;
+    }
+
+    .field label {
+      color: var(--text-muted);
+    }
+
+    .field input,
+    .field textarea {
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--text-main);
+      padding: 8px 10px;
+      font-family: inherit;
+      font-size: 0.86rem;
+      outline: none;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.4);
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .contact-footnote {
+      margin-top: 8px;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.95);
+      margin-top: 32px;
+      padding-top: 18px;
+      padding-bottom: 6px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    footer a {
+      color: var(--accent);
+      font-size: 0.78rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero,
+      .two-col,
+      .contact {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero {
+        margin-top: 32px;
+      }
+      .hero-card {
+        order: -1;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .inner {
+        padding: 20px 14px 52px;
+      }
+      .nav {
+        padding-inline: 14px;
+      }
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .form-row {
+        flex-direction: column;
+      }
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="inner">
+      <!-- NAV -->
+      <header class="nav">
+        <div class="nav-left">
+          <div class="logo-mark" aria-hidden="true"></div>
+          <div>
+            <div class="logo-text-main">Recio Digital Group</div>
+            <div class="logo-text-sub">Trades&nbsp;&bull;&nbsp;Apps&nbsp;&bull;&nbsp;Automation</div>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#what-we-build">What we build</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="nav-cta">
+          <span class="dot"></span>
+          <span>Start a project</span>
+        </a>
+      </header>
+
+      <!-- HERO -->
+      <main>
+        <section class="hero">
+          <div>
+            <div class="hero-kicker">
+              <span class="hero-kicker-pill">Built for the trades</span>
+              <span>Real job-site problems &nbsp;&rarr;&nbsp; real digital tools</span>
+            </div>
+            <h1 class="hero-title">
+              Digital tools <span class="accent">built right</span> for
+              electricians and contractors.
+            </h1>
+            <p class="hero-body">
+              Recio Digital Group designs, builds, and ships apps that make life
+              easier in the field—like the <strong>Sparkies</strong> electrician
+              toolkit, the <strong>Construction Daily Log</strong>, and
+              <strong>Built Right Industries</strong> project solutions.
+            </p>
+            <div class="hero-actions">
+              <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                Book a project call
+                <span class="arrow">↗</span>
+              </button>
+              <button class="btn-ghost" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">
+                View apps & brands
+              </button>
+            </div>
+            <div class="hero-meta">
+              <div class="hero-meta-badge">Electrician-led product thinking</div>
+              <div class="hero-meta-badge">Designed around real-world workflows</div>
+              <div class="hero-meta-badge">Ready for iOS &amp; Android</div>
+            </div>
+          </div>
+
+          <!-- HERO RIGHT CARD -->
+          <aside class="hero-card" aria-label="Recio Digital Group snapshot">
+            <div class="hero-orbit"></div>
+
+            <div class="hero-card-header">
+              <div class="hero-card-title">Active product lineup</div>
+              <div class="hero-card-chip">
+                <span class="hero-card-chip-dot"></span>
+                Live builds in progress
+              </div>
+            </div>
+
+            <div class="hero-card-grid">
+              <div class="product-card">
+                <div class="product-label">Flagship app</div>
+                <div class="product-title">
+                  Sparkies
+                  <span class="product-chip">Electrician toolkit</span>
+                </div>
+                <div class="product-meta">
+                  <span class="product-tag">Bending calculators</span>
+                  <span class="product-tag">Color codes</span>
+                  <span class="product-tag">NEC quick ref</span>
+                </div>
+                <div class="product-graph">
+                  <div class="product-graph-bar short"></div>
+                  <div class="product-graph-bar mid"></div>
+                  <div class="product-graph-bar yellow tall"></div>
+                  <div class="product-graph-bar mid"></div>
+                  <div class="product-graph-bar short"></div>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-label">Built Right Industries</div>
+                <div class="product-title">
+                  Project tools
+                </div>
+                <div class="product-meta">
+                  <span class="product-tag">Construction daily log</span>
+                  <span class="product-tag">Jobsite reporting</span>
+                  <span class="product-tag">PM workflows</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-card-footer">
+              <div>
+                <div>Focus: <strong>Trades &amp; construction</strong></div>
+                <div style="font-size:0.72rem; color:var(--text-muted);">
+                  From electricians for electricians, foremen, and project managers.
+                </div>
+              </div>
+              <div class="hero-card-badge-row">
+                <div class="hero-card-badge">iOS &amp; Android ready</div>
+                <div class="hero-card-badge">Web dashboards (coming soon)</div>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about">
+          <div class="section-header">
+            <div>
+              <div class="section-eyebrow">About Recio Digital Group</div>
+              <h2 class="section-title">A digital studio built on job-site experience.</h2>
+            </div>
+            <p class="section-desc">
+              We blend real trades experience with modern software development to build tools
+              that actually match how work gets done in the field—no fluff, just useful features.
+            </p>
+          </div>
+
+          <div class="two-col">
+            <article class="card">
+              <h3>We speak both sides: tools and terminals.</h3>
+              <p>
+                Recio Digital Group was created to solve the gap between what the job-site really
+                needs and what generic software delivers. Every screen, calculator, and workflow
+                is designed with electricians, project managers, and construction teams in mind.
+              </p>
+              <ul class="bullets">
+                <li>
+                  <span class="icon">⚡</span>
+                  <span>Deep understanding of electrician realities—runs, bends, code, and time pressure.</span>
+                </li>
+                <li>
+                  <span class="icon">📲</span>
+                  <span>Modern app design that feels clean and intuitive, even with complex calculations.</span>
+                </li>
+                <li>
+                  <span class="icon">📋</span>
+                  <span>Reporting and logging tools that reduce paperwork and keep jobs moving.</span>
+                </li>
+              </ul>
+              <div class="pill-row">
+                <div class="pill em">Electrician tools</div>
+                <div class="pill">Construction PM</div>
+                <div class="pill">Field productivity</div>
+                <div class="pill">Digital checklists</div>
+              </div>
+            </article>
+
+            <article class="card-light">
+              <h3>Where this is headed.</h3>
+              <p>
+                Over time, Recio Digital Group will expand into a family of apps and services
+                under one umbrella—Sparkies, Built Right Industries, and additional tools that
+                connect the office, truck, and job-site.
+              </p>
+              <ul class="bullets">
+                <li>
+                  <span class="icon">🚀</span>
+                  <span>First wave: Sparkies app &amp; Construction Daily Log.</span>
+                </li>
+                <li>
+                  <span class="icon">🧱</span>
+                  <span>Next: scheduling, reporting, and project dashboards tailored to trades.</span>
+                </li>
+                <li>
+                  <span class="icon">🤝</span>
+                  <span>Long term: a full ecosystem making the trades more profitable and less chaotic.</span>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- WHAT WE BUILD -->
+        <section id="what-we-build">
+          <div class="section-header">
+            <div>
+              <div class="section-eyebrow">What we build</div>
+              <h2 class="section-title">Apps and tools that work the way you work.</h2>
+            </div>
+            <p class="section-desc">
+              From quick calculators to full reporting workflows, our focus is on tools that
+              electricians and construction teams actually open every day.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <article class="brand-card">
+              <div class="brand-chip">For electricians</div>
+              <div class="brand-name">Job-site calculators</div>
+              <p class="brand-desc">
+                Bend calculators, circuit color charts, NEC references, and helpers that keep
+                you moving instead of stuck in the codebook.
+              </p>
+              <div class="brand-meta-row">
+                <span class="brand-tag">Offset &amp; 3-point bends</span>
+                <span class="brand-tag">Conduit fill</span>
+                <span class="brand-tag">Wire sizing helpers</span>
+              </div>
+            </article>
+
+            <article class="brand-card">
+              <div class="brand-chip">For PMs &amp; foremen</div>
+              <div class="brand-name">Construction daily logs</div>
+              <p class="brand-desc">
+                Capture manpower, progress, photos, and notes in minutes and export clean,
+                professional PDFs for owners, GCs, and internal records.
+              </p>
+              <div class="brand-meta-row">
+                <span class="brand-tag">Photo attachments</span>
+                <span class="brand-tag">Location &amp; weather</span>
+                <span class="brand-tag">PDF exports</span>
+              </div>
+            </article>
+
+            <article class="brand-card">
+              <div class="brand-chip">For teams</div>
+              <div class="brand-name">Custom solutions</div>
+              <p class="brand-desc">
+                Need something tailored for your company? We can adapt existing tools or
+                architect something brand new around your workflows.
+              </p>
+              <div class="brand-meta-row">
+                <span class="brand-tag">White-labeled apps</span>
+                <span class="brand-tag">Internal tools</span>
+                <span class="brand-tag">Process automation</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- PORTFOLIO / BRANDS -->
+        <section id="portfolio">
+          <div class="section-header">
+            <div>
+              <div class="section-eyebrow">Apps &amp; brands</div>
+              <h2 class="section-title">A growing lineup under one LLC.</h2>
+            </div>
+            <p class="section-desc">
+              Recio Digital Group is the umbrella that holds multiple brands together—so each
+              can stay focused while sharing the same quality bar.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <article class="brand-card">
+              <div class="brand-chip">Sparkies</div>
+              <div class="brand-name">Electrician toolkit app</div>
+              <p class="brand-desc">
+                A pocket companion for electricians—bending visuals, circuit color charts,
+                quick NEC references, and more, all in a clean, modern interface.
+              </p>
+              <div class="brand-meta-row">
+                <span class="brand-tag">iOS &amp; Android</span>
+                <span class="brand-tag">Bending pictorials</span>
+                <span class="brand-tag">Themeable UI</span>
+              </div>
+              <div class="brand-footer-link">
+                <span>Preview Sparkies UI</span> <span>↗</span>
+              </div>
+            </article>
+
+            <article class="brand-card">
+              <div class="brand-chip">Built Right Industries</div>
+              <div class="brand-name">Electrical &amp; project tools</div>
+              <p class="brand-desc">
+                A brand focused on tools, workflows, and engineering support for tradesmen—
+                from estimating and planning to execution.
+              </p>
+              <div class="brand-meta-row">
+                <span class="brand-tag">Electrical focus</span>
+                <span class="brand-tag">Planning tools</span>
+                <span class="brand-tag">Future web platform</span>
+              </div>
+              <div class="brand-footer-link">
+                <span>View Built Right plans</span> <span>↗</span>
+              </div>
+            </article>
+
+            <article class="brand-card">
+              <div class="brand-chip">Construction Daily Log</div>
+              <div class="brand-name">Job log &amp; PDF export app</div>
+              <p class="brand-desc">
+                Capture every day on the job in one place: crews, equipment, issues, and
+                photos—then send clean PDFs directly from your device.
+              </p>
+              <div class="brand-meta-row">
+                <span class="brand-tag">Field-tested layout</span>
+                <span class="brand-tag">Offline-friendly</span>
+                <span class="brand-tag">Shareable reports</span>
+              </div>
+              <div class="brand-footer-link">
+                <span>See log workflow</span> <span>↗</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- WHY WORK WITH US -->
+        <section>
+          <div class="section-header">
+            <div>
+              <div class="section-eyebrow">Why work with us</div>
+              <h2 class="section-title">You’re not starting from zero.</h2>
+            </div>
+            <p class="section-desc">
+              Partnering with Recio Digital Group means you’re building with someone who has
+              already felt the pain points on-site—and is actively solving them in code.
+            </p>
+          </div>
+
+          <div class="grid-2">
+            <article class="reason-card">
+              <div class="reason-badge">01</div>
+              <h3>Real trades experience baked in.</h3>
+              <p>
+                Every feature starts with a field problem: confusing bends, scattered notes,
+                missing documentation, or wasted time. We solve those first.
+              </p>
+            </article>
+
+            <article class="reason-card">
+              <div class="reason-badge">02</div>
+              <h3>Modern design your team will actually use.</h3>
+              <p>
+                Clean UI, clear typography, and smooth flows mean shorter learning curves—
+                and apps that become part of the daily routine instead of collecting dust.
+              </p>
+            </article>
+
+            <article class="reason-card">
+              <div class="reason-badge">03</div>
+              <h3>Built to grow with your company.</h3>
+              <p>
+                Start with a single app or tool. As your needs expand, we can layer in
+                dashboards, reporting, and automation under the same umbrella.
+              </p>
+            </article>
+
+            <article class="reason-card">
+              <div class="reason-badge">04</div>
+              <h3>No “agency speak,” just straight talk.</h3>
+              <p>
+                We keep communication clear and practical—scope, timelines, and what will
+                actually move the needle on productivity and profitability.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+          <div class="section-header">
+            <div>
+              <div class="section-eyebrow">Contact</div>
+              <h2 class="section-title">Let’s build something for your team.</h2>
+            </div>
+            <p class="section-desc">
+              Whether you want a custom app, a white-labeled tool, or early access to our
+              existing products, reach out and we’ll map out the best starting point.
+            </p>
+          </div>
+
+          <div class="contact">
+            <div class="contact-copy">
+              <p>
+                Share a bit about your company, the type of work you do, and what you’re
+                struggling with today—from documentation to planning to on-site consistency.
+              </p>
+              <div class="contact-meta">
+                Prefer email? Reach us at <strong>info@reciodigitalgroup.com</strong> (you can
+                update this to your real address).
+              </div>
+            </div>
+
+            <form
+              class="contact-form"
+              onsubmit="event.preventDefault(); alert('Form submission handling not wired up yet — connect this to your email or a form service.');"
+            >
+              <div class="form-row">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" placeholder="Your name" />
+                </div>
+                <div class="field">
+                  <label for="company">Company</label>
+                  <input id="company" name="company" type="text" placeholder="Company or team" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="you@example.com" />
+                </div>
+                <div class="field">
+                  <label for="role">Role</label>
+                  <input id="role" name="role" type="text" placeholder="Owner, PM, Foreman..." />
+                </div>
+              </div>
+              <div class="field">
+                <label for="message">What are you looking to build?</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell us about your project, challenges, and what success would look like."
+                ></textarea>
+              </div>
+              <div style="margin-top:12px; display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                <button type="submit" class="btn-primary">
+                  Send message
+                  <span class="arrow">↗</span>
+                </button>
+                <div class="contact-footnote">
+                  This form is currently a front-end demo. Connect it to a service like
+                  Formspree or your backend to start receiving submissions.
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <!-- FOOTER -->
+      <footer>
+        <div>© <span id="year"></span> Recio Digital Group LLC. All rights reserved.</div>
+        <div>
+          <a href="#about">About</a> ·
+          <a href="#portfolio">Portfolio</a> ·
+          <a href="#contact">Contact</a>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
